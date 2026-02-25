@@ -18,6 +18,7 @@ El proyecto esta basado en la tarea Escenario Procedural agregando la animación
 6. Conclusión
 7. Cómo Ejecutar el Proyecto
 
+---
 
 # 1. Introducción
 
@@ -27,6 +28,7 @@ El proyecto consiste en la generación automática de un pasillo curvo compuesto
 
 El modelado no se realizó manualmente; todo el entorno fue construido mediante código utilizando la API `bpy`.
 
+---
 
 # 2. Objetivo
 
@@ -48,6 +50,7 @@ Diseñar un pasillo curvo en un entorno 3D y automatizar la animación de una c�
 ## 4.1 Preparación del Entorno
 
 Se importan las librerías necesarias:
+
 ![Vista General](images/importacion.png)
 
 Posteriormente, se limpia la escena eliminando los objetos existentes:
@@ -65,12 +68,7 @@ Esto garantiza que el escenario se genere desde cero.
 
 Se define una función para crear materiales personalizados:
 
-```python
-def crear_material(nombre, color_rgb):
-    mat = bpy.data.materials.new(name=nombre)
-    mat.diffuse_color = (*color_rgb, 1.0)
-    return mat
-```
+![Detalle Materiales](images/materiales.png)
 
 Se crean tres materiales:
 
@@ -86,12 +84,7 @@ Estos materiales se aplican posteriormente a los objetos generados.
 
 Se establecen variables que controlan la geometría del pasillo:
 
-```python
-largo_pasillo = 20
-ancho_pasillo = 4
-paso = 2
-radio = 15
-```
+![Detalle parametro](images/variablep.png)
 
 * `largo_pasillo`: cantidad de segmentos.
 * `ancho_pasillo`: distancia entre paredes.
@@ -103,18 +96,9 @@ radio = 15
 ## 4.4 Generación del Pasillo Curvo
 
 Se utiliza un ciclo `for` para crear cada segmento:
-
-```python
-for i in range(largo_pasillo):
-```
-
 La curvatura se obtiene mediante una función trigonométrica:
 
-```python
-angulo = i * (paso / radio)
-desplazamiento_x = math.sin(angulo) * radio
-posicion_y = i * paso
-```
+![Generar pasillo](images/generacionp.png)
 
 El seno permite generar el desplazamiento lateral en el eje X, produciendo la curva del pasillo.
 
@@ -126,9 +110,7 @@ En cada iteración se crean:
 
 La alternancia de materiales se realiza con:
 
-```python
-if i % 2 == 0:
-```
+![Detalle pared](images/crearpared.png)
 
 Esto genera un efecto visual decorativo.
 
@@ -165,6 +147,8 @@ for frame in range(frames):
 
 Los keyframes permiten que Blender interpole el movimiento automáticamente entre cada cuadro.
 
+![Camara](images/movimiento.png)
+
 ---
 
 # 5. Resultados
@@ -178,11 +162,15 @@ El script genera automáticamente:
 
 La animación es fluida y se genera completamente mediante programación.
 
+![Resultados1](images/camara1.png)
+
+![Resultado2 ](images/camara2.png)
+
 ---
 
 # 6. Conclusión
 
-Esta práctica demuestra que Blender no solo es una herramienta de modelado manual, sino también un entorno programable capaz de generar escenarios complejos a partir de cálculos matemáticos.
+Esta práctica interactuamos mas con el software conocer mas su entorno o espacio de trabajo y mas que nada poder irnos relacionando con blender.
 
 Se aplicaron conceptos de:
 
