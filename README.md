@@ -188,10 +188,7 @@ El uso de programación permite optimizar tiempo y generar estructuras repetitiv
 1. Abrir Blender.
 2. Ir a la pestaña **Scripting**.
 3. Crear un nuevo archivo de texto.
-4. Pegar el código completo.
+4. Poner el codigo.
 5. Presionar **Run Script**.
 6. Reproducir la animación en la línea de tiempo.
 
----
-
-Si deseas, puedo agregarte también una sección de **mejoras futuras** para que tu repositorio se vea más profesional.
